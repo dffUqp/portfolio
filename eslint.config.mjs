@@ -1,6 +1,7 @@
 import { FlatCompat } from '@eslint/eslintrc';
 import js from '@eslint/js';
 import pluginNext from '@next/eslint-plugin-next';
+import pluginReactThree from '@react-three/eslint-plugin';
 import stylisticPlugin from '@stylistic/eslint-plugin';
 import eslintPluginPrettier from 'eslint-plugin-prettier/recommended';
 import reactHooks from 'eslint-plugin-react-hooks';
@@ -37,6 +38,7 @@ export default tseslint.config(
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
       '@next/next': pluginNext,
+      // '@react-three': pluginReactThree,
     },
     settings: {
       'import/resolver': {

@@ -8,6 +8,8 @@ const jiti = createJiti(fileURLToPath(import.meta.url));
 jiti('./src/env');
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  transpilePackages: ['three'],
+};
 
 export default nextConfig;

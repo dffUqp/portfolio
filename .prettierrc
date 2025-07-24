@@ -17,8 +17,8 @@
     "",
     "<THIRD_PARTY_MODULES>",
     "",
-    "^(app|views|widgets|features|shared)$",
-    "^(app|views|widgets|features|shared)(/.*)$",
+    "^(app|views|widgets|features|providers|shared)$",
+    "^(app|views|widgets|features|providers|shared)(/.*)$",
     "",
     "^[./]"
   ],
