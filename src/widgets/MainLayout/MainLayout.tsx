@@ -7,8 +7,7 @@ import Lenis from 'lenis';
 import { useScrollProgress } from 'providers';
 import { cn } from 'shared/lib/cn';
 
-import { CirclesBackground } from './ui/CirclesBackground';
-import { StarsBackground } from './ui/StarsBackground';
+import { CirclesBackground, StarsBackground } from './ui';
 
 interface MainLayoutProps extends PropsWithChildren {
   className?: string;

@@ -1,10 +1,3 @@
-'use client';
-
-import { Summary } from 'features/Summary';
-import { Container } from 'shared/ui';
-
-import { useScrollProgress } from '../providers/PageScrollProgressProvider';
-
 const expInfo = [
   {
     jobTitle: 'Front-End Developer at OTAKOYI',
@@ -46,52 +39,4 @@ const expInfo = [
   },
 ];
 
-const HomePage = () => {
-  const { targetBlockRef } = useScrollProgress();
-
-  return (
-    <Container>
-      <div className="relative z-50 w-full flex justify-between text-white">
-        <div className="h-screen sticky top-0 flex items-center">
-          <Summary />
-        </div>
-
-        <div className="basis-[50%] relative">
-          <div className="sticky top-1 bg-transparent w-full h-[300px] z-20 pointer-events-none" />
-
-          <div className="flex flex-col gap-6">
-            {expInfo.map(info => (
-              <div key={info.jobTitle} className="flex flex-col">
-                <div className="flex justify-between w-full font-bold text-md">
-                  <h3>{info.jobTitle}</h3>
-                  <p>{info.date}</p>
-                </div>
-                <span className="block text-sm">{info.companyDesc}</span>
-                <ul className="flex flex-col gap-2 mt-1.5 list-disc">
-                  {info.bulletPoints.map(bulletPoint => {
-                    return (
-                      <li key={bulletPoint}>
-                        <span>{bulletPoint}</span>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          <div className="sticky bottom-0 bg-transparent w-full h-[300px] z-20 pointer-events-none" />
-        </div>
-      </div>
-
-      <div
-        ref={targetBlockRef}
-        className="h-[100vh] flex justify-center items-center text-white"
-      >
-        Test
-      </div>
-    </Container>
-  );
-};
-
-export default HomePage;
+export { expInfo };
