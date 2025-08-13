@@ -10,24 +10,3 @@
   min-height: 100vh;
   min-height: 100dvh;
 }
-
-.fade-mask {
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent,
-    black 20%,
-    black 80%,
-    transparent
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    transparent,
-    black 20%,
-    black 80%,
-    transparent
-  );
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-}
