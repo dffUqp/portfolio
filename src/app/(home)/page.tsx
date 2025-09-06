@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 
 import { useScrollProgress } from 'providers';
 
-import { HeroWidget, InteractionWidget } from './ui';
+import { HeroWidget } from './ui';
 
 const CVWidget = dynamic(
   () => import('./ui/CVWidget').then(mod => mod.CVWidget),
@@ -21,8 +21,6 @@ const HomePage = () => {
       <HeroWidget />
 
       <div ref={targetBlockRef}>
-        <InteractionWidget />
-
         <CVWidget />
       </div>
     </>
