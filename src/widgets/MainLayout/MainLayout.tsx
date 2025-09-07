@@ -20,7 +20,9 @@ const MainLayout: FC<MainLayoutProps> = ({ children, className }) => {
 
   useEffect(() => {
     if (!lenisRef.current) {
-      lenisRef.current = new Lenis({});
+      lenisRef.current = new Lenis({
+        prevent: node => node.hasAttribute('data-scroll-locked'),
+      });
     }
 
     function raf(time: number) {
