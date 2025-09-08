@@ -7,7 +7,7 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from 'shared/ui';
+} from 'components/molecules/dialog';
 
 const CVPreviewDialogContent = () => {
   return (

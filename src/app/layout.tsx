@@ -3,8 +3,9 @@ import { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
-import { PageScrollProgressProvider } from 'providers';
-import { MainLayout } from 'widgets/MainLayout';
+import { PageScrollProgressProvider } from 'providers/PageScrollProgressProvider';
+
+import { MainLayout } from 'components/templates/MainLayout';
 
 import 'app/styles/global.css';
 

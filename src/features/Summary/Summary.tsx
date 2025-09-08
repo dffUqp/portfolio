@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 import { motion } from 'motion/react';
 
-import { getFadeInUpAnimation } from 'shared/lib';
+import { getFadeInUpAnimation } from 'utils/animation';
 
 const socials = [
   {

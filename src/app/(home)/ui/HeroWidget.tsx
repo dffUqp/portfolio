@@ -1,8 +1,11 @@
 import { motion } from 'motion/react';
 
-import { Experience, Summary } from 'features';
-import { getFadeInUpAnimation } from 'shared/lib';
-import { Container } from 'shared/ui';
+import { Experience } from 'features/Experience';
+import { Summary } from 'features/Summary';
+
+import { Container } from 'components/atoms/container/container';
+
+import { getFadeInUpAnimation } from 'utils/animation';
 
 const HeroWidget = () => {
   return (

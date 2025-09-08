@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
-import { Button, Dialog, DialogTrigger } from 'shared/ui';
+import { Dialog, DialogTrigger } from 'components/molecules/dialog';
+import { Button } from 'components/atoms/button';
 
 import { CVPreviewDialogContent } from './ui';
 

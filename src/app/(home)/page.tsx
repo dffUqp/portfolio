@@ -1,8 +1,9 @@
 'use client';
 
-import { useScrollProgress } from 'providers';
+import { useScrollProgress } from 'providers/PageScrollProgressProvider';
 
-import { CVWidget, HeroWidget } from './ui';
+import { CVWidget } from './ui/CVWidget';
+import { HeroWidget } from './ui/HeroWidget';
 
 const HomePage = () => {
   const { targetBlockRef } = useScrollProgress();

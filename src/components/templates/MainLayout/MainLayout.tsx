@@ -4,10 +4,12 @@ import { FC, PropsWithChildren, useEffect, useRef } from 'react';
 
 import Lenis from 'lenis';
 
-import { useScrollProgress } from 'providers';
-import { cn } from 'shared/lib/cn';
+import { useScrollProgress } from 'providers/PageScrollProgressProvider';
 
-import { CirclesBackground, StarsBackground } from './ui';
+import { cn } from 'utils/cn';
+
+import { CirclesBackground } from './ui/CirclesBackground';
+import { StarsBackground } from './ui/StarsBackground';
 
 interface MainLayoutProps extends PropsWithChildren {
   className?: string;

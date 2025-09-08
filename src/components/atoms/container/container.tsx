@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef, forwardRef, ReactNode } from 'react';
 
-import { cn } from 'shared/lib';
+import { cn } from 'utils/cn';
 
 interface ContainerProps extends ComponentPropsWithoutRef<'div'> {
   className?: string;

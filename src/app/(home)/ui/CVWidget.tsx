@@ -1,7 +1,8 @@
 'use client';
 
-import { CVPreview } from 'features';
-import { Container } from 'shared/ui';
+import { CVPreview } from 'features/CVPreview';
+
+import { Container } from 'components/atoms/container/container';
 
 const CVWidget = () => {
   return (
