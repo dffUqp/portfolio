@@ -21,9 +21,9 @@ const CVWidget = () => {
               expertise. My CV highlights a track record of delivering impactful
               software solutions, leading projects from concept to launch, and
               collaborating with teams to achieve ambitious goals. You can
-              download a PDF copy to review my work history, skills, and
-              education in detail, or reach out directly via email for
-              collaborations, opportunities, or further information.
+              download a PDF copy to review my work history, skills in detail,
+              or reach out directly via email for collaborations, opportunities,
+              or further information.
             </p>
           </div>
         </div>

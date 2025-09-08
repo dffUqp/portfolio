@@ -36,8 +36,8 @@ const Summary = () => {
         className="text-sm lg:text-base mt-4 text-gray-400 text-center md:text-start"
         {...getFadeInUpAnimation(1)}
       >
-        Front-End Developer with 4+ years of experience building maintainable
-        web applications using React, TypeScript, and Next.js. Passionate about
+        Frontend Engineer with 4+ years of experience building maintainable web
+        applications using React, TypeScript, and Next.js. Passionate about
         exploring technologies in depth to deliver efficient, high-quality
         solutions. Collaborative team player with experience working in
         cross-functional environments.

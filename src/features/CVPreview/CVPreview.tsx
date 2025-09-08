@@ -47,7 +47,7 @@ const CVPreview = () => {
       </Dialog>
 
       <Button
-        className="w-full "
+        className="w-full"
         onClick={() => {
           window.open(
             `${window.location.href}/pdf/Yurii_Vasylchuk_CV.pdf`,

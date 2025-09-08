@@ -33,7 +33,7 @@ const Experience = () => {
           <ExperienceItem
             parentOffsetTop={topOffset}
             blockHeight={experienceBlockHeight}
-            key={info.jobTitle}
+            key={info.companyName}
             info={info}
             progress={scrollYProgress}
           />

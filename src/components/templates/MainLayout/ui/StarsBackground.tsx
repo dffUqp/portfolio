@@ -77,7 +77,8 @@ const StarsBackground: FC<StarsBackgroundProps> = ({ scrollValue }) => {
   return (
     <motion.span
       className="fixed w-full h-full flex z-[-1] opacity-70"
-      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 0.7 }}
       transition={{ duration: 0.5, delay: 0.5 }}
     >
       <Canvas camera={{ position: [0, 0, 1] }}>

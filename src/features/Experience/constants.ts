@@ -1,11 +1,11 @@
 const expInfo = [
   {
-    jobTitle: 'Front-End Developer at',
+    jobTitle: 'Front-End Engineer at',
     companyName: 'OTAKOYI',
     date: 'Aug 2024 - Present',
     companyDesc: 'Global IT service provider with 200+ projects',
     bulletPoints: [
-      'Delivered a large-scale CRM system to manage internal products for a leading identity verification platform, using a custom-built, fully accessible UI kit compliant with WCAG and ARIA standards.',
+      'Developed a B2B e-learning platform with a Next.js/MUI architecture for a leading course provider, achieving a 90%+ satisfaction rate among early users.',
       'Mentored a team of 2 front-end developers, implementing code standards and contributing to a highly productive and efficient work environment.',
     ],
   },
@@ -15,24 +15,24 @@ const expInfo = [
     date: 'Jul 2023 - Aug 2024',
     companyDesc: 'International IT service provider',
     bulletPoints: [
-      'Delivered a large-scale CRM system to manage internal products for a leading digital verification company, using a custom-built, fully accessible UI kit compliant with WCAG and ARIA standards.',
-      'Developed a proof-of-concept application for a startup in the finance domain using D3.js and Recharts, contributing to successful investment funding.',
-      'Led the development of an AI-based social networking platform, designing the architecture and implementing features such as real-time chat, multi-step forms, and UI with complex transitions.',
+      'Delivered a large-scale CRM system to manage internal products for a leading identity verification platform, using a custom-built, fully accessible UI kit compliant with WCAG and ARIA standards',
+      'Developed a proof-of-concept finance system for a startup using D3.js, Recharts, and TanStack Table, contributing to successful investment funding.',
+      'Led the development of an AI-based social networking platform, designing the architecture and implementing features such as real-time chat, multi-step forms, and custom UI components.',
       "Contributed to a real estate CRM monorepo by successfully completing Google's security assessment, preventing vulnerabilities that could expose sensitive user data and source maps.",
     ],
   },
   {
     jobTitle: 'Full-Stack Mentor at',
-    companyName: 'Mate Academy (Part-time)',
+    companyName: 'Mate Academy (Part-Time)',
     date: 'Jun 2023 - Aug 2024',
     companyDesc: 'Leading Ukrainian EdTech company',
     bulletPoints: [
       "Improved students' technical skills through detailed code reviews and Q&A sessions for front-end and back-end courses, leading to higher job placement rates.",
-      'Prepared students for real-world scenarios by conducting mock technical interviews, improving their confidence and interview skills',
+      'Prepared students for real-world scenarios by conducting mock technical interviews, improving their confidence and interview skills.',
     ],
   },
   {
-    jobTitle: 'Front-End Developer at ',
+    jobTitle: 'Front-End Developer at',
     companyName: 'DevelopsToday',
     date: 'Jan 2022 - Jun 2023',
     companyDesc: 'Global IT service provider',
