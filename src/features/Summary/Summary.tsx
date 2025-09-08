@@ -1,5 +1,9 @@
 import Image from 'next/image';
 
+import { motion } from 'motion/react';
+
+import { getFadeInUpAnimation } from 'shared/lib';
+
 const socials = [
   {
     iconPath: '/icons/github.svg',
@@ -20,16 +24,29 @@ const socials = [
 
 const Summary = () => {
   return (
-    <div className="flex flex-col max-w-[450px] gap-1">
-      <h1 className="text-5xl font-extrabold leading-[1]">Yurii Vasylchuk</h1>
-      <p className="mt-4 text-gray-400">
-        Experienced Front-End Developer with a strong foundation in React and
-        TypeScript. Worked in various domains, building scalable web
-        applications and delivering impactful solutions. Fluent in spoken
-        English.
-      </p>
+    <div className="flex flex-col items-center md:items-start max-w-[450px] gap-1">
+      <motion.h1
+        className="text-4xl lg:text-5xl font-extrabold leading-[1]"
+        {...getFadeInUpAnimation(0)}
+      >
+        Yurii Vasylchuk
+      </motion.h1>
 
-      <div className="flex items-center gap-3 mt-4">
+      <motion.p
+        className="text-sm lg:text-base mt-4 text-gray-400 text-center md:text-start"
+        {...getFadeInUpAnimation(1)}
+      >
+        Front-End Developer with 4+ years of experience building maintainable
+        web applications using React, TypeScript, and Next.js. Passionate about
+        exploring technologies in depth to deliver efficient, high-quality
+        solutions. Collaborative team player with experience working in
+        cross-functional environments.
+      </motion.p>
+
+      <motion.div
+        className="flex items-center gap-3 mt-4"
+        {...getFadeInUpAnimation(2)}
+      >
         {socials.map(social => (
           <a
             key={social.name}
@@ -43,10 +60,11 @@ const Summary = () => {
               height={32}
               src={social.iconPath}
               alt={social.name}
+              className="w-7 h-7 lg:w-8 lg:h-8"
             />
           </a>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };

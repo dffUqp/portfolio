@@ -2,20 +2,20 @@ import { FC, useEffect, useRef, useState } from 'react';
 
 import { motion, MotionValue, useTransform } from 'motion/react';
 
-import { cn } from 'shared/lib';
-
 import { expInfo } from '../constants';
 
 interface ExperienceItemProps {
   info: (typeof expInfo)[number];
   progress: MotionValue<number>;
   blockHeight: number;
+  parentOffsetTop: number;
 }
 
 const ExperienceItem: FC<ExperienceItemProps> = ({
   info,
   progress,
   blockHeight,
+  parentOffsetTop,
 }) => {
   const itemRef = useRef<HTMLDivElement | null>(null);
   const [itemHeight, setItemHeight] = useState(0);
@@ -28,7 +28,7 @@ const ExperienceItem: FC<ExperienceItemProps> = ({
   useEffect(() => {
     if (itemRef.current) {
       setItemHeight(itemRef.current.clientHeight);
-      setItemOffset(itemRef.current.offsetTop - 300);
+      setItemOffset(itemRef.current.offsetTop - parentOffsetTop);
     }
   }, [blockHeight]);
 
@@ -47,15 +47,20 @@ const ExperienceItem: FC<ExperienceItemProps> = ({
   return (
     <motion.div
       ref={itemRef}
-      className={cn('flex flex-col duration-200')}
+      className="flex flex-col duration-200"
       style={{ opacity }}
     >
-      <div className="flex justify-between w-full font-bold text-md">
-        <h3>{info.jobTitle}</h3>
+      <div className="flex justify-between w-full font-bold text-xs sm:text-sm lg:text-base">
+        <h3>
+          {info.jobTitle}
+          <br className="lg:hidden" /> {info.companyName}
+        </h3>
         <p>{info.date}</p>
       </div>
-      <span className="block text-sm">{info.companyDesc}</span>
-      <ul className="flex flex-col gap-2 mt-1.5 list-disc">
+      <span className="block text-[10px] sm:text-xs lg:text-sm">
+        {info.companyDesc}
+      </span>
+      <ul className="flex flex-col gap-2 mt-1.5 sm:list-disc text-xs sm:text-sm lg:text-base">
         {info.bulletPoints.map(bulletPoint => {
           return (
             <li key={bulletPoint}>

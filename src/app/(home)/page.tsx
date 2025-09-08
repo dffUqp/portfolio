@@ -1,17 +1,8 @@
 'use client';
 
-import dynamic from 'next/dynamic';
-
 import { useScrollProgress } from 'providers';
 
-import { HeroWidget } from './ui';
-
-const CVWidget = dynamic(
-  () => import('./ui/CVWidget').then(mod => mod.CVWidget),
-  {
-    ssr: false,
-  },
-);
+import { CVWidget, HeroWidget } from './ui';
 
 const HomePage = () => {
   const { targetBlockRef } = useScrollProgress();

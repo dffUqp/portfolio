@@ -14,12 +14,12 @@ const CVPreviewDialogContent = () => {
     <DialogContent>
       <DialogHeader className="justify-between bg-neutral-600 black py-3 px-6">
         <div className="flex items-center">
-          <DialogTitle>Preview of My CV</DialogTitle>
+          <DialogTitle>Preview of the CV</DialogTitle>
         </div>
 
         <DialogClose
           data-slot="dialog-close"
-          className="rounded-xs focus:ring-2 focus:ring-offset-2 focus:outline-hidden  [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-8"
+          className="rounded-xs focus:ring-2 focus:ring-offset-2 focus:outline-hidden [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-8"
         >
           <XIcon />
           <span className="sr-only">Close</span>
@@ -39,10 +39,7 @@ const CVPreviewDialogContent = () => {
             height="100%"
             title="Fallback PDF Viewer"
           >
-            <p>
-              Your browser does not support PDFs. [Download the
-              PDF](document.pdf)
-            </p>
+            <p>Your browser does not support PDFs.</p>
           </iframe>
         </object>
       </div>

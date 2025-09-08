@@ -1,15 +1,17 @@
 const expInfo = [
   {
-    jobTitle: 'Front-End Developer at OTAKOYI',
+    jobTitle: 'Front-End Developer at',
+    companyName: 'OTAKOYI',
     date: 'Aug 2024 - Present',
     companyDesc: 'Global IT service provider with 200+ projects',
     bulletPoints: [
-      'Developed a B2B e-learning system with a Next.js/MUI architecture for a leading course provider, achieving a 90%+ satisfaction rate among early users.',
+      'Delivered a large-scale CRM system to manage internal products for a leading identity verification platform, using a custom-built, fully accessible UI kit compliant with WCAG and ARIA standards.',
       'Mentored a team of 2 front-end developers, implementing code standards and contributing to a highly productive and efficient work environment.',
     ],
   },
   {
-    jobTitle: 'Full-Stack Developer at Lumitech',
+    jobTitle: 'Full-Stack Developer at',
+    companyName: 'Lumitech',
     date: 'Jul 2023 - Aug 2024',
     companyDesc: 'International IT service provider',
     bulletPoints: [
@@ -20,7 +22,8 @@ const expInfo = [
     ],
   },
   {
-    jobTitle: 'Full-Stack Mentor at Mate Academy (Part-time)',
+    jobTitle: 'Full-Stack Mentor at',
+    companyName: 'Mate Academy (Part-time)',
     date: 'Jun 2023 - Aug 2024',
     companyDesc: 'Leading Ukrainian EdTech company',
     bulletPoints: [
@@ -29,7 +32,8 @@ const expInfo = [
     ],
   },
   {
-    jobTitle: 'Front-End Developer at DevelopsToday',
+    jobTitle: 'Front-End Developer at ',
+    companyName: 'DevelopsToday',
     date: 'Jan 2022 - Jun 2023',
     companyDesc: 'Global IT service provider',
     bulletPoints: [

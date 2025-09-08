@@ -5,18 +5,25 @@ import { Button, Dialog, DialogTrigger } from 'shared/ui';
 import { CVPreviewDialogContent } from './ui';
 
 const CVPreview = () => {
+  const renderCVPreviewImage = () => {
+    return (
+      <Image
+        src="/Yurii_Vasylchuk_CV.png"
+        alt="Preview of the CV"
+        width={260}
+        height={336}
+        unoptimized
+        quality={100}
+      />
+    );
+  };
+
   return (
     <div className="flex flex-col gap-4 items-center">
+      <div className="block md:hidden">{renderCVPreviewImage()}</div>
       <Dialog>
-        <DialogTrigger className="group relative cursor-pointer shadow-xl">
-          <Image
-            src="/Yurii_Vasylchuk_CV.png"
-            alt="Preview of the CV"
-            width={260}
-            height={336}
-            unoptimized
-            quality={100}
-          />
+        <DialogTrigger className="hidden md:block group relative cursor-pointer shadow-xl">
+          {renderCVPreviewImage()}
 
           <div className="text-white top-0 absolute w-full h-full duration-150 flex opacity-0 invisible justify-center items-center group-hover:opacity-100 group-hover:visible">
             <span className="relative z-2 text-">Click to Open</span>
@@ -51,7 +58,7 @@ const CVPreview = () => {
       </Button>
       <a
         href="mailto:yuriivasylchuk.work@gmail.com"
-        className="text-indigo-400 hover:underline"
+        className="text-indigo-400 hover:underline h-10 px-6"
       >
         Contact via email
       </a>

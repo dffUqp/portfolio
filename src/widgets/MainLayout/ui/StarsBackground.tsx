@@ -5,12 +5,17 @@ import { FC, Suspense, useRef, useState } from 'react';
 import { PointMaterial, Points, Preload } from '@react-three/drei';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import * as random from 'maath/random';
-import { MotionValue, useMotionValueEvent } from 'motion/react';
+import { motion, MotionValue, useMotionValueEvent } from 'motion/react';
 import { Points as PointsType, TextureLoader } from 'three';
 
 interface StartProps {
   scrollValue: MotionValue<number>;
 }
+
+useLoader.preload(
+  TextureLoader,
+  'https://raw.githubusercontent.com/Kuntal-Das/textures/main/sp2.png',
+);
 
 export const Stars: FC<StartProps> = ({ scrollValue }) => {
   const ref = useRef<PointsType>(null);
@@ -70,7 +75,11 @@ interface StarsBackgroundProps {
 
 const StarsBackground: FC<StarsBackgroundProps> = ({ scrollValue }) => {
   return (
-    <span className="fixed w-full h-full inset-0 z-[-1] opacity-70">
+    <motion.span
+      className="fixed w-full h-full flex z-[-1] opacity-70"
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5, delay: 0.5 }}
+    >
       <Canvas camera={{ position: [0, 0, 1] }}>
         <Suspense fallback={null}>
           <Stars scrollValue={scrollValue} />
@@ -78,7 +87,10 @@ const StarsBackground: FC<StarsBackgroundProps> = ({ scrollValue }) => {
 
         <Preload all />
       </Canvas>
-    </span>
+
+      {/* https://github.com/radix-ui/website/blob/8c5a605f07879131e0f7a7e3fd777bb3604672d1/pages/docs/design-system/overview/%5Bslug%5D.tsx#L34-L41 */}
+      <div className="w-[var(--removed-body-scroll-bar-size)] h-full" />
+    </motion.span>
   );
 };
 

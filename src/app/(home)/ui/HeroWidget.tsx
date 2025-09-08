@@ -1,17 +1,26 @@
+import { motion } from 'motion/react';
+
 import { Experience, Summary } from 'features';
+import { getFadeInUpAnimation } from 'shared/lib';
 import { Container } from 'shared/ui';
 
 const HeroWidget = () => {
   return (
     <Container>
-      <div className="relative z-50 w-full flex justify-between text-white">
-        <div className="h-screen sticky top-0 flex items-center">
+      <div
+        className="flex flex-col animate-in fade-in slide-in-from-bottom-[2%] [animation-duration:500ms] relative z-50 w-full 
+       justify-between text-white md:flex-row gap-6"
+      >
+        <div className="h-screen md:sticky top-0 flex justify-center items-center">
           <Summary />
         </div>
 
-        <div className="basis-[50%]">
+        <motion.div
+          {...getFadeInUpAnimation(3)}
+          className="basis-[60%] xl:basis-[50%]"
+        >
           <Experience />
-        </div>
+        </motion.div>
       </div>
     </Container>
   );
