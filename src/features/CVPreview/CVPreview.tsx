@@ -6,6 +6,15 @@ import { Button } from 'components/atoms/button';
 import { CVPreviewDialogContent } from './ui';
 
 const CVPreview = () => {
+  const handleCVDownload = () => {
+    const link = document.createElement('a');
+    link.href = `./pdf/Yurii_Vasylchuk_CV.pdf`;
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const renderCVPreviewImage = () => {
     return (
       <Image
@@ -46,15 +55,7 @@ const CVPreview = () => {
         <CVPreviewDialogContent />
       </Dialog>
 
-      <Button
-        className="w-full"
-        onClick={() => {
-          window.open(
-            `${window.location.href}/pdf/Yurii_Vasylchuk_CV.pdf`,
-            '_blank',
-          );
-        }}
-      >
+      <Button className="w-full" onClick={handleCVDownload}>
         Download
       </Button>
       <a

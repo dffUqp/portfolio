@@ -6,16 +6,3 @@
     background-color: rgb(3, 7, 18);
   }
 }
-
-@layer utility {
-  @media (max-width: 768px) {
-    .only-desktop-motion {
-      @apply transition-none motion-reduce:transform-none motion-reduce:animate-none;
-    }
-  }
-}
-
-@utility min-h-full-screen {
-  min-height: 100vh;
-  min-height: 100dvh;
-}

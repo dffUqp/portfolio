@@ -16,8 +16,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Yurii Vasylchuk | Portfolio',
-  description: 'Portfolio of Yurii Vasylchuk',
+  title: 'Yurii Vasylchuk | Personal Website',
+  description: 'Personal website of Yurii Vasylchuk.',
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
