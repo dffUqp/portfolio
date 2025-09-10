@@ -7,7 +7,7 @@ import { Container } from 'components/atoms/container/container';
 const CVWidget = () => {
   return (
     <Container>
-      <div className="pt-[80px] pb-[50px] min-h-[100vh] flex flex-col justify-center items-center text-white">
+      <div className="pt-[80px] pb-[50px] min-h-[100lvh] flex flex-col justify-center items-center text-white">
         <div className="w-full flex flex-col-reverse md:flex-row justify-around gap-6 mt-6 items-center">
           <CVPreview />
 

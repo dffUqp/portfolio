@@ -41,7 +41,7 @@ const MainLayout: FC<MainLayoutProps> = ({ children, className }) => {
   }, [lenisRef.current]);
 
   return (
-    <div className="relative flex flex-col w-full h-full min-h-screen">
+    <div className="relative flex flex-col w-full h-full min-h-[100lvh]">
       <StarsBackground scrollValue={scrollYProgress} />
       <CirclesBackground />
 
