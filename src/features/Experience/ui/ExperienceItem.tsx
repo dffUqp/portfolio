@@ -47,7 +47,7 @@ const ExperienceItem: FC<ExperienceItemProps> = ({
   return (
     <motion.div
       ref={itemRef}
-      className="flex flex-col duration-200"
+      className="flex flex-col duration-500 sm:duration-200"
       style={{ opacity }}
     >
       <div className="flex justify-between w-full font-bold text-xs sm:text-sm lg:text-base">
