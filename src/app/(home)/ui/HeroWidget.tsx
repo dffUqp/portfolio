@@ -20,7 +20,7 @@ const HeroWidget = () => {
 
         <motion.div
           {...getFadeInUpAnimation(3)}
-          className="basis-[60%] xl:basis-[50%]"
+          className="relative basis-[60%] xl:basis-[50%]"
         >
           <Experience />
         </motion.div>
