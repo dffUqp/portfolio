@@ -1,55 +1,68 @@
 import { FC, useEffect, useRef, useState } from 'react';
 
-import { motion, MotionValue, useTransform } from 'motion/react';
+import {
+  animate,
+  motion,
+  MotionValue,
+  useMotionValue,
+  useMotionValueEvent,
+  useTransform,
+} from 'motion/react';
 
 import { expInfo } from '../constants';
 
+const INITIAL_OPACITY = 0.3;
+
 interface ExperienceItemProps {
+  index: number;
   info: (typeof expInfo)[number];
   progress: MotionValue<number>;
   blockHeight: number;
-  parentOffsetTop: number;
 }
 
 const ExperienceItem: FC<ExperienceItemProps> = ({
   info,
+  index,
   progress,
   blockHeight,
-  parentOffsetTop,
 }) => {
   const itemRef = useRef<HTMLDivElement | null>(null);
   const [itemHeight, setItemHeight] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
 
   const placeTaken = itemHeight / blockHeight;
-  const startPoint = itemOffset / blockHeight;
+  const startPoint = (itemOffset - index * 24) / blockHeight;
   const endPoint = startPoint + placeTaken;
+
+  const isLastBlock = blockHeight === itemOffset + itemHeight;
 
   useEffect(() => {
     if (itemRef.current) {
       setItemHeight(itemRef.current.clientHeight);
-      setItemOffset(itemRef.current.offsetTop - parentOffsetTop);
+      setItemOffset(itemRef.current.offsetTop);
     }
   }, [blockHeight]);
 
-  const opacity = useTransform(progress, value => {
+  const opacity = useMotionValue(INITIAL_OPACITY);
+
+  const targetOpacity = useTransform(progress, (value): number => {
     if (value >= startPoint && value < endPoint) {
       return 1;
     }
 
-    if (endPoint === 1 && value >= 1) {
+    if (isLastBlock && value >= endPoint) {
       return 1;
     }
 
-    return 0.3;
+    return INITIAL_OPACITY;
+  });
+
+  useMotionValueEvent(targetOpacity, 'change', value => {
+    animate(opacity, value, { duration: 0.2 });
   });
 
   return (
-    <motion.div
-      ref={itemRef}
-      className="flex flex-col duration-500 sm:duration-200"
-      style={{ opacity }}
-    >
+    <motion.div ref={itemRef} className="flex flex-col" style={{ opacity }}>
       <div className="flex justify-between w-full font-bold text-xs sm:text-sm lg:text-base">
         <h3>
           {info.jobTitle}

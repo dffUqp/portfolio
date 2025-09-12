@@ -2,6 +2,11 @@
 @import 'tw-animate-css';
 
 @layer base {
+  /* https://github.com/motiondivision/motion/issues/1853#issuecomment-2122841818 */
+  html {
+    position: relative;
+  }
+
   body {
     background-color: rgb(3, 7, 18);
   }

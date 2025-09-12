@@ -12,7 +12,6 @@ const Experience = () => {
 
   const experienceBlockRef = useRef<HTMLDivElement | null>(null);
   const [experienceBlockHeight, setExperienceBlockHeight] = useState(0);
-  const [topOffset, setTopOffset] = useState(0);
 
   const { scrollYProgress } = useScroll({
     target: experienceContainerRef,
@@ -22,16 +21,15 @@ const Experience = () => {
   useEffect(() => {
     if (experienceBlockRef.current) {
       setExperienceBlockHeight(experienceBlockRef.current.clientHeight);
-      setTopOffset(experienceBlockRef.current.offsetTop);
     }
   }, []);
 
   return (
     <div ref={experienceContainerRef} className="py-[50px] md:py-[31vh]">
-      <div ref={experienceBlockRef} className="flex flex-col gap-6">
-        {expInfo.map(info => (
+      <div ref={experienceBlockRef} className="relative flex flex-col gap-6">
+        {expInfo.map((info, index) => (
           <ExperienceItem
-            parentOffsetTop={topOffset}
+            index={index}
             blockHeight={experienceBlockHeight}
             key={info.companyName}
             info={info}
