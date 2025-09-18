@@ -1,3 +1,5 @@
+// Reference: https://github.com/cubedhuang
+
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
@@ -130,7 +132,7 @@ const CirclesBackground = () => {
   }, []);
 
   return (
-    <svg className="w-screen min-h-[110lvh] h-full fixed -z-10 top-0 left-0 pointer-events-none">
+    <svg className="w-screen h-full fixed -z-10 top-0 left-0 pointer-events-none">
       {boids.map((b, i) => (
         <radialGradient
           key={i}

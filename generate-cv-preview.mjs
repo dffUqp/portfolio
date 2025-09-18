@@ -1,4 +1,4 @@
-// REF: https://github.com/mozilla/pdf.js/blob/master/examples/node/pdf2png/pdf2png.mjs
+// Reference: https://github.com/mozilla/pdf.js/blob/master/examples/node/pdf2png/pdf2png.mjs
 
 import fs from 'fs';
 import { fileURLToPath } from 'node:url';
