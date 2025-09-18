@@ -76,7 +76,7 @@ interface StarsBackgroundProps {
 const StarsBackground: FC<StarsBackgroundProps> = ({ scrollValue }) => {
   return (
     <motion.span
-      className="fixed w-full min-h-[110lvh] h-full flex z-[-1] opacity-70"
+      className="fixed w-full h-full flex z-[-1] opacity-70"
       initial={{ opacity: 0 }}
       animate={{ opacity: 0.7 }}
       transition={{ duration: 0.5, delay: 0.5 }}
