@@ -132,7 +132,7 @@ const CirclesBackground = () => {
   }, []);
 
   return (
-    <svg className="w-screen h-full fixed -z-10 top-0 left-0 pointer-events-none">
+    <svg className="w-screen h-[100dvh] fixed -z-10 top-0 left-0 pointer-events-none">
       {boids.map((b, i) => (
         <radialGradient
           key={i}

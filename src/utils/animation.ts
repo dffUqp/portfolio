@@ -1,6 +1,9 @@
-const getFadeInUpAnimation = (order: number) => {
+const getFadeInUpAnimation = (
+  order: number,
+  startPosition: string | number = 16,
+) => {
   return {
-    initial: { y: 16, opacity: 0 },
+    initial: { y: startPosition, opacity: 0 },
     animate: { y: 0, opacity: 1 },
     transition: { duration: 0.5, delay: order * 0.07 },
   };

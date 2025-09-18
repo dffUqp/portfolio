@@ -2,12 +2,15 @@
 @import 'tw-animate-css';
 
 @layer base {
-  /* https://github.com/motiondivision/motion/issues/1853#issuecomment-2122841818 */
   html {
+    /* https://github.com/motiondivision/motion/issues/1853#issuecomment-2122841818 */
     position: relative;
+
+    height: 100%;
   }
 
   body {
     background-color: rgb(3, 7, 18);
+    height: 100%;
   }
 }
