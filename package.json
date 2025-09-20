@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",
-    "@react-spring/web": "^9.7.5",
+    "@radix-ui/react-slot": "^1.2.3",
     "@react-three/drei": "^10.0.6",
     "@react-three/fiber": "^9.1.2",
     "@t3-oss/env-nextjs": "^0.12.0",

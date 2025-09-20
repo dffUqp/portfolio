@@ -1,32 +1,52 @@
-import { ButtonHTMLAttributes, forwardRef, ReactNode } from 'react';
+import { ComponentProps, FC } from 'react';
+
+import { Slot } from '@radix-ui/react-slot';
+import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from 'utils/cn';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children?: ReactNode;
-  className?: string;
-}
-
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, children, ...rest }, ref) => {
-    return (
-      <button
-        type="button"
-        ref={ref}
-        className={cn(
-          'cursor-pointer inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 shrink-0',
-          'outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive',
-          'bg-indigo-500 text-white shadow-xs hover:bg-indigo-600/90',
-          'h-10 rounded-md px-6',
-          className,
-        )}
-        {...rest}
-      >
-        {children}
-      </button>
-    );
+const buttonVariants = cva(
+  'cursor-pointer inline-flex items-center justify-center gap-2 whitespace-nowrap transition-all disabled:pointer-events-none disabled:opacity-50 shrink-0',
+  {
+    variants: {
+      variant: {
+        default:
+          'text-sm font-medium bg-indigo-500 text-white shadow-xs hover:bg-indigo-600/90',
+        link: 'text-indigo-400 hover:underline',
+      },
+      size: {
+        default: 'rounded-md h-10 px-6',
+      },
+    },
+    defaultVariants: {
+      variant: 'default',
+      size: 'default',
+    },
   },
 );
 
-Button.displayName = 'Button';
-export { Button };
+interface ButtonProps
+  extends ComponentProps<'button'>,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean;
+}
+
+const Button: FC<ButtonProps> = ({
+  className,
+  variant,
+  size,
+  asChild = false,
+  ...rest
+}) => {
+  const Comp = asChild ? Slot : 'button';
+
+  return (
+    <Comp
+      data-slot="button"
+      className={cn(buttonVariants({ variant, size, className }))}
+      {...rest}
+    />
+  );
+};
+
+export { Button, buttonVariants };

@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
-import { PageScrollProgressProvider } from 'providers/PageScrollProgressProvider';
+import { SectionScrollProvider } from 'providers/SectionScrollProvider';
 
 import { MainLayout } from 'components/templates/MainLayout';
 
@@ -29,9 +29,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <PageScrollProgressProvider>
+        <SectionScrollProvider>
           <MainLayout>{children}</MainLayout>
-        </PageScrollProgressProvider>
+        </SectionScrollProvider>
       </body>
     </html>
   );

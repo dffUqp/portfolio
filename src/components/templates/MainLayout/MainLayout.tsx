@@ -4,7 +4,7 @@ import { FC, PropsWithChildren, useEffect, useRef } from 'react';
 
 import Lenis from 'lenis';
 
-import { useScrollProgress } from 'providers/PageScrollProgressProvider';
+import { useSectionScrollProgress } from 'providers/SectionScrollProvider';
 
 import { cn } from 'utils/cn';
 
@@ -18,7 +18,7 @@ interface MainLayoutProps extends PropsWithChildren {
 const MainLayout: FC<MainLayoutProps> = ({ children, className }) => {
   const lenisRef = useRef<null | Lenis>(null);
 
-  const { scrollYProgress } = useScrollProgress();
+  const { scrollYProgress } = useSectionScrollProgress();
 
   useEffect(() => {
     if (!lenisRef.current) {

@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useScroll } from 'motion/react';
 
 import { expInfo } from './constants';
-import { ExperienceItem } from './ui';
+import { ExperienceItem } from './ui/ExperienceItem';
 
 const Experience = () => {
   const experienceContainerRef = useRef<HTMLDivElement | null>(null);

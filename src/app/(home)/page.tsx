@@ -1,18 +1,18 @@
 'use client';
 
-import { useScrollProgress } from 'providers/PageScrollProgressProvider';
+import { useSectionScrollProgress } from 'providers/SectionScrollProvider';
 
 import { CVWidget } from './ui/CVWidget';
 import { HeroWidget } from './ui/HeroWidget';
 
 const HomePage = () => {
-  const { targetBlockRef } = useScrollProgress();
+  const { targetSection } = useSectionScrollProgress();
 
   return (
     <>
       <HeroWidget />
 
-      <div ref={targetBlockRef}>
+      <div ref={targetSection}>
         <CVWidget />
       </div>
     </>
