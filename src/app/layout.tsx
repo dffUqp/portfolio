@@ -3,6 +3,8 @@ import { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
+import { Analytics } from '@vercel/analytics/next';
+
 import { SectionScrollProvider } from 'providers/SectionScrollProvider';
 
 import { MainLayout } from 'components/templates/MainLayout';
@@ -32,6 +34,7 @@ export default function RootLayout({
         <SectionScrollProvider>
           <MainLayout>{children}</MainLayout>
         </SectionScrollProvider>
+        <Analytics />
       </body>
     </html>
   );
