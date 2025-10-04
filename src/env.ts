@@ -3,10 +3,14 @@ import { z } from 'zod';
 
 const env = createEnv({
   server: {
-    NODE_ENV: z.enum(['development', 'production']).default('development'),
+    CONTENTFUL_SPACE_ID: z.string(),
+    CONTENTFUL_ACCESS_TOKEN: z.string(),
+    CONTENTFUL_MANAGEMENT_TOKEN: z.string(),
   },
   runtimeEnv: {
-    NODE_ENV: process.env.NODE_ENV,
+    CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID,
+    CONTENTFUL_ACCESS_TOKEN: process.env.CONTENTFUL_ACCESS_TOKEN,
+    CONTENTFUL_MANAGEMENT_TOKEN: process.env.CONTENTFUL_MANAGEMENT_TOKEN,
   },
 });
 
