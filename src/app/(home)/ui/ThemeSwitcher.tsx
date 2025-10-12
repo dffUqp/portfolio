@@ -27,10 +27,12 @@ const ThemeChanger = () => {
   }
 
   return (
-    <FixedContentWrapper className="top-6 right-8">
+    <FixedContentWrapper className="lg:fixed absolute top-6 right-6 z-20">
       <motion.div {...getFadeInUpAnimation(9)}>
         <Button
-          onClick={() => setTheme(isDarkMode ? 'light' : 'dark')}
+          onClick={() => {
+            setTheme(isDarkMode ? 'light' : 'dark');
+          }}
           variant="ghost"
           size="icon"
         >

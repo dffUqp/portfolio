@@ -29,17 +29,18 @@ const socials = [
 
 const expInfo = [
   {
-    jobTitle: 'Front-End Engineer at',
+    jobTitle: 'Frontend Engineer at',
     companyName: 'OTAKOYI',
     date: 'Aug 2024 - Present',
     companyDesc: 'Global IT service provider with 200+ projects',
     bulletPoints: [
       'Developed a B2B e-learning platform with a Next.js/MUI architecture for a leading course provider, achieving a 90%+ satisfaction rate among early users.',
+      'Built a type-safe utility for the Next.js API proxy layer, reducing 3,800+ lines of boilerplate while standardizing logging, validation, and error-handling logic.',
       'Mentored a team of 2 front-end developers, implementing code standards and contributing to a highly productive and efficient work environment.',
     ],
   },
   {
-    jobTitle: 'Full-Stack Developer at',
+    jobTitle: 'Full-Stack Engineer at',
     companyName: 'Lumitech',
     date: 'Jul 2023 - Aug 2024',
     companyDesc: 'International IT service provider',
@@ -61,7 +62,7 @@ const expInfo = [
     ],
   },
   {
-    jobTitle: 'Front-End Developer at',
+    jobTitle: 'Frontend Engineer at',
     companyName: 'DevelopsToday',
     date: 'Jan 2022 - Jun 2023',
     companyDesc: 'Global IT service provider',
