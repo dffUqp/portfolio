@@ -6,7 +6,7 @@ import Lenis from 'lenis';
 
 import { useSectionScrollProgress } from 'providers/SectionScrollProvider';
 
-import { cn } from 'utils/cn';
+import { cn } from 'lib/cn';
 
 import { CirclesBackground } from './ui/CirclesBackground';
 import { StarsBackground } from './ui/StarsBackground';

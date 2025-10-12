@@ -2,11 +2,21 @@
 
 import { useEffect, useState } from 'react';
 
+import { MoonStar, Sun } from 'lucide-react';
+import { motion } from 'motion/react';
+
 import { useAnimatedTheme } from 'providers/ThemeProvider';
+
+import { Button } from 'components/atoms/button';
+import { FixedContentWrapper } from 'components/atoms/fixed-content-wrapper';
+
+import { getFadeInUpAnimation } from 'lib/animation';
 
 const ThemeChanger = () => {
   const [mounted, setMounted] = useState(false);
+
   const { theme, setTheme } = useAnimatedTheme();
+  const isDarkMode = theme === 'dark';
 
   useEffect(() => {
     setMounted(true);
@@ -17,23 +27,17 @@ const ThemeChanger = () => {
   }
 
   return (
-    <div className="flex gap-2.5">
-      The current theme is: {theme}
-      <button
-        type="button"
-        className="border-2 border-amber-300 p-1.5"
-        onClick={() => setTheme('light')}
-      >
-        Light Mode
-      </button>
-      <button
-        type="button"
-        className="border-2 border-amber-300 p-1.5"
-        onClick={() => setTheme('dark')}
-      >
-        Dark Mode
-      </button>
-    </div>
+    <FixedContentWrapper className="top-6 right-8">
+      <motion.div {...getFadeInUpAnimation(9)}>
+        <Button
+          onClick={() => setTheme(isDarkMode ? 'light' : 'dark')}
+          variant="ghost"
+          size="icon"
+        >
+          {isDarkMode ? <Sun /> : <MoonStar />}
+        </Button>
+      </motion.div>
+    </FixedContentWrapper>
   );
 };
 

@@ -4,7 +4,7 @@ import { ComponentProps, FC } from 'react';
 
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 
-import { cn } from 'utils/cn';
+import { cn } from 'lib/cn';
 
 const Dialog: FC<ComponentProps<typeof DialogPrimitive.Root>> = props => {
   return <DialogPrimitive.Root data-slot="dialog" {...props} />;

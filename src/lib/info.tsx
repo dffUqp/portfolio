@@ -1,3 +1,32 @@
+import { Envelope, Github, Linkedin } from 'components/atoms/icons';
+
+const summaryInfo = {
+  title: 'Yurii Vasylchuk',
+  subTitle: `Frontend Engineer with 4+ years of experience building maintainable web
+        applications using React, TypeScript, and Next.js. Passionate about
+        exploring technologies in depth to deliver efficient, high-quality
+        solutions. Collaborative team player with experience working in
+        cross-functional environments.`,
+};
+
+const socials = [
+  {
+    children: <Github className="w-7 h-7 lg:w-8 lg:h-8" />,
+    name: 'Github',
+    link: 'https://github.com/dffUqp',
+  },
+  {
+    children: <Linkedin className="w-7 h-7 lg:w-8 lg:h-8" />,
+    name: 'Linkedin',
+    link: 'https://www.linkedin.com/in/yuriivasylchuk/',
+  },
+  {
+    children: <Envelope className="w-7 h-7 lg:w-8 lg:h-8" />,
+    name: 'Envelope',
+    link: 'mailto:yuriivasylchuk.work@gmail.com',
+  },
+];
+
 const expInfo = [
   {
     jobTitle: 'Front-End Engineer at',
@@ -43,4 +72,4 @@ const expInfo = [
   },
 ];
 
-export { expInfo };
+export { summaryInfo, socials, expInfo };

@@ -1,31 +1,15 @@
+@import url('./colors.css');
+
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-::view-transition-group(root) {
-  animation-timing-function: var(--expo-out);
-}
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-::view-transition-new(root) {
-  mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><defs><filter id="blur"><feGaussianBlur stdDeviation="2"/></filter></defs><circle cx="0" cy="0" r="18" fill="white" filter="url(%23blur)"/></svg>')
-    top left / 0 no-repeat;
-  mask-origin: content-box;
-  animation: scale 1s;
-  animation-fill-mode: both;
-  transform-origin: top left;
-}
+@theme inline {
+  --color-bg: var(--bg);
 
-::view-transition-old(root),
-[data-theme='dark']::view-transition-old(root) {
-  animation: scale 1s;
-  animation-fill-mode: both;
-  transform-origin: top left;
-  z-index: -1;
-}
-
-@keyframes scale {
-  to {
-    mask-size: 350vmax;
-  }
+  --color-primary-text: var(--primary-text);
+  --color-sub-text: var(--sub-text);
 }
 
 @layer base {
@@ -42,23 +26,26 @@
   }
 }
 
-:root {
-  --bg: hsl(210, 50%, 98%);
-
-  --primary-text: hsl(222, 47%, 11%);
-  --sub-text: hsl(215, 20%, 50%);
+/* Inspired by: https://elysiajs.com/, https://theme-toggle.rdsx.dev/ */
+::view-transition-new(root) {
+  mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><defs><filter id="blur"><feGaussianBlur stdDeviation="2"/></filter></defs><circle cx="40" cy="0" r="18" fill="white" filter="url(%23blur)"/></svg>')
+    top right / 0 no-repeat;
+  mask-origin: content-box;
+  animation: scale 1s;
+  animation-fill-mode: both;
+  transform-origin: top right;
 }
 
-[data-theme='dark'] {
-  --bg: rgb(3, 7, 18);
-
-  --primary-text: hsl(0, 0%, 100%);
-  --sub-text: hsl(217.9 12% 64%);
+::view-transition-old(root),
+[data-theme='dark']::view-transition-old(root) {
+  animation: scale 1s;
+  animation-fill-mode: both;
+  transform-origin: top right;
+  z-index: -1;
 }
 
-@theme inline {
-  --color-bg: var(--bg);
-
-  --color-primary-text: var(--primary-text);
-  --color-sub-text: var(--sub-text);
+@keyframes scale {
+  to {
+    mask-size: 350vmax;
+  }
 }

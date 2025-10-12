@@ -5,7 +5,7 @@ import { Summary } from 'features/Summary';
 
 import { Container } from 'components/atoms/container/container';
 
-import { getFadeInUpAnimation } from 'utils/animation';
+import { getFadeInUpAnimation } from 'lib/animation';
 
 const HeroWidget = () => {
   return (

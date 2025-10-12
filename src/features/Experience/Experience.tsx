@@ -4,7 +4,8 @@ import { useEffect, useRef, useState } from 'react';
 
 import { useScroll } from 'motion/react';
 
-import { expInfo } from './constants';
+import { expInfo } from 'lib/info';
+
 import { ExperienceItem } from './ui/ExperienceItem';
 
 const Experience = () => {
