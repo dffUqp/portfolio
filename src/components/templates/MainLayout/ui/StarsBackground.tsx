@@ -1,12 +1,14 @@
 'use client';
 
-import { FC, Suspense, useRef, useState } from 'react';
+import { FC, Suspense, useEffect, useRef, useState } from 'react';
 
 import { PointMaterial, Points, Preload } from '@react-three/drei';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import * as random from 'maath/random';
 import { motion, MotionValue, useMotionValueEvent } from 'motion/react';
 import { Points as PointsType, TextureLoader } from 'three';
+
+import { useAnimatedTheme } from 'providers/ThemeProvider';
 
 interface StartProps {
   scrollValue: MotionValue<number>;
@@ -74,6 +76,19 @@ interface StarsBackgroundProps {
 }
 
 const StarsBackground: FC<StarsBackgroundProps> = ({ scrollValue }) => {
+  const { theme } = useAnimatedTheme();
+  const [mounted, setMounted] = useState(false);
+
+  const isDarkMode = theme === 'dark';
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted || !isDarkMode) {
+    return null;
+  }
+
   return (
     <motion.span
       className="fixed w-full h-[100dvh] flex z-[-1] opacity-70"

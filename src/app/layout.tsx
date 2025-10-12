@@ -6,6 +6,7 @@ import { Inter } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 
 import { SectionScrollProvider } from 'providers/SectionScrollProvider';
+import { ThemeProvider } from 'providers/ThemeProvider';
 
 import { MainLayout } from 'components/templates/MainLayout';
 
@@ -29,11 +30,14 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <SectionScrollProvider>
-          <MainLayout>{children}</MainLayout>
-        </SectionScrollProvider>
+        <ThemeProvider defaultTheme="dark" disableTransitionOnChange>
+          <SectionScrollProvider>
+            <MainLayout>{children}</MainLayout>
+          </SectionScrollProvider>
+        </ThemeProvider>
+
         <Analytics />
       </body>
     </html>

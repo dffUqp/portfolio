@@ -33,7 +33,7 @@ const Summary = () => {
       </motion.h1>
 
       <motion.p
-        className="text-sm lg:text-base mt-4 text-gray-400 text-center md:text-start"
+        className="text-sm lg:text-base mt-4 text-sub-text text-center md:text-start"
         {...getFadeInUpAnimation(1)}
       >
         Frontend Engineer with 4+ years of experience building maintainable web
@@ -60,7 +60,7 @@ const Summary = () => {
               height={32}
               src={social.iconPath}
               alt={social.name}
-              className="w-7 h-7 lg:w-8 lg:h-8"
+              className="w-7 h-7 lg:w-8 lg:h-8 "
             />
           </a>
         ))}

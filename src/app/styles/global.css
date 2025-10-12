@@ -1,6 +1,33 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+::view-transition-group(root) {
+  animation-timing-function: var(--expo-out);
+}
+
+::view-transition-new(root) {
+  mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><defs><filter id="blur"><feGaussianBlur stdDeviation="2"/></filter></defs><circle cx="0" cy="0" r="18" fill="white" filter="url(%23blur)"/></svg>')
+    top left / 0 no-repeat;
+  mask-origin: content-box;
+  animation: scale 1s;
+  animation-fill-mode: both;
+  transform-origin: top left;
+}
+
+::view-transition-old(root),
+[data-theme='dark']::view-transition-old(root) {
+  animation: scale 1s;
+  animation-fill-mode: both;
+  transform-origin: top left;
+  z-index: -1;
+}
+
+@keyframes scale {
+  to {
+    mask-size: 350vmax;
+  }
+}
+
 @layer base {
   html {
     /* https://github.com/motiondivision/motion/issues/1853#issuecomment-2122841818 */
@@ -10,7 +37,28 @@
   }
 
   body {
-    background-color: rgb(3, 7, 18);
+    background-color: var(--bg);
     height: 100%;
   }
+}
+
+:root {
+  --bg: hsl(210, 50%, 98%);
+
+  --primary-text: hsl(222, 47%, 11%);
+  --sub-text: hsl(215, 20%, 50%);
+}
+
+[data-theme='dark'] {
+  --bg: rgb(3, 7, 18);
+
+  --primary-text: hsl(0, 0%, 100%);
+  --sub-text: hsl(217.9 12% 64%);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+
+  --color-primary-text: var(--primary-text);
+  --color-sub-text: var(--sub-text);
 }

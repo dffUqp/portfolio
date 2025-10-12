@@ -12,11 +12,11 @@ const CVWidget = () => {
           <CVPreview />
 
           <div className="flex flex-col md:text-start text-center md:basis-[45%] gap-4">
-            <h3 className="text-2xl md:text-3xl font-bold">
+            <h3 className="text-primary-text text-2xl md:text-3xl font-bold">
               Professional Resume
             </h3>
 
-            <p className="text-sm md:text-base text-gray-400">
+            <p className="text-sub-text text-sm md:text-base">
               Explore my professional background, experience, and technical
               expertise. My CV highlights a track record of delivering impactful
               software solutions, leading projects from concept to launch, and
