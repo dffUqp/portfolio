@@ -50,7 +50,6 @@
 /* Inspired by: https://elysiajs.com/, https://theme-toggle.rdsx.dev/ */
 ::view-transition-group(root) {
   animation-timing-function: var(--expo-out);
-  height: 100%;
 }
 
 ::view-transition-new(root) {

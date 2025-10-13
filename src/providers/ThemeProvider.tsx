@@ -8,6 +8,24 @@ import {
   useTheme,
 } from 'next-themes';
 
+const forceRepaint = () => {
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    document.body.offsetHeight;
+    document.body.getBoundingClientRect();
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    getComputedStyle(document.documentElement).opacity;
+
+    document.documentElement.style.willChange = 'transform';
+    requestAnimationFrame(() => {
+      document.documentElement.style.willChange = '';
+    });
+  } catch {
+    //
+  }
+};
+
 const useAnimatedTheme = () => {
   const themeProps = useTheme();
 
@@ -21,12 +39,9 @@ const useAnimatedTheme = () => {
       if (document.startViewTransition) {
         document.startViewTransition(() => {
           flushSync(() => {
-            setTimeout(() => {
-              themeProps.setTheme(mode);
-              // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-              document.body.offsetHeight;
-              console.log(document.body.offsetHeight);
-            }, 0);
+            themeProps.setTheme(mode);
+            // Try forcing repaint immediately after theme set to make it work on mobile
+            forceRepaint();
           });
         });
       } else {
