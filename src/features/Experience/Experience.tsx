@@ -26,7 +26,7 @@ const Experience = () => {
   }, []);
 
   return (
-    <div ref={experienceContainerRef} className="py-[50px] md:py-[31vh]">
+    <div ref={experienceContainerRef} className="py-[50px] md:py-[31dvh]">
       <div ref={experienceBlockRef} className="relative flex flex-col gap-6">
         {expInfo.map((info, index) => (
           <ExperienceItem

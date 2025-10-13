@@ -20,7 +20,14 @@ const useAnimatedTheme = () => {
 
       if (document.startViewTransition) {
         document.startViewTransition(() => {
-          flushSync(() => themeProps.setTheme(mode));
+          flushSync(() => {
+            setTimeout(() => {
+              themeProps.setTheme(mode);
+              // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+              document.body.offsetHeight;
+              console.log(document.body.offsetHeight);
+            }, 0);
+          });
         });
       } else {
         themeProps.setTheme(mode);
