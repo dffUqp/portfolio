@@ -1,16 +1,46 @@
+import { Envelope, Github, Linkedin } from 'components/atoms/icons';
+
+const summaryInfo = {
+  title: 'Yurii Vasylchuk',
+  subTitle: `Frontend Engineer with 4+ years of experience building maintainable web
+        applications using React, TypeScript, and Next.js. Passionate about
+        exploring technologies in depth to deliver efficient, high-quality
+        solutions. Collaborative team player with experience working in
+        cross-functional environments.`,
+};
+
+const socials = [
+  {
+    children: <Github className="w-7 h-7 lg:w-8 lg:h-8" />,
+    name: 'Github',
+    link: 'https://github.com/dffUqp',
+  },
+  {
+    children: <Linkedin className="w-7 h-7 lg:w-8 lg:h-8" />,
+    name: 'Linkedin',
+    link: 'https://www.linkedin.com/in/yuriivasylchuk/',
+  },
+  {
+    children: <Envelope className="w-7 h-7 lg:w-8 lg:h-8" />,
+    name: 'Envelope',
+    link: 'mailto:yuriivasylchuk.work@gmail.com',
+  },
+];
+
 const expInfo = [
   {
-    jobTitle: 'Front-End Engineer at',
+    jobTitle: 'Frontend Engineer at',
     companyName: 'OTAKOYI',
     date: 'Aug 2024 - Present',
     companyDesc: 'Global IT service provider with 200+ projects',
     bulletPoints: [
       'Developed a B2B e-learning platform with a Next.js/MUI architecture for a leading course provider, achieving a 90%+ satisfaction rate among early users.',
+      'Built a type-safe utility for the Next.js API proxy layer, reducing 3,800+ lines of boilerplate while standardizing logging, validation, and error-handling logic.',
       'Mentored a team of 2 front-end developers, implementing code standards and contributing to a highly productive and efficient work environment.',
     ],
   },
   {
-    jobTitle: 'Full-Stack Developer at',
+    jobTitle: 'Full-Stack Engineer at',
     companyName: 'Lumitech',
     date: 'Jul 2023 - Aug 2024',
     companyDesc: 'International IT service provider',
@@ -32,7 +62,7 @@ const expInfo = [
     ],
   },
   {
-    jobTitle: 'Front-End Developer at',
+    jobTitle: 'Frontend Engineer at',
     companyName: 'DevelopsToday',
     date: 'Jan 2022 - Jun 2023',
     companyDesc: 'Global IT service provider',
@@ -43,4 +73,4 @@ const expInfo = [
   },
 ];
 
-export { expInfo };
+export { summaryInfo, socials, expInfo };

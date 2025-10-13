@@ -4,7 +4,8 @@ import { useEffect, useRef, useState } from 'react';
 
 import { useScroll } from 'motion/react';
 
-import { expInfo } from './constants';
+import { expInfo } from 'lib/info';
+
 import { ExperienceItem } from './ui/ExperienceItem';
 
 const Experience = () => {
@@ -25,7 +26,7 @@ const Experience = () => {
   }, []);
 
   return (
-    <div ref={experienceContainerRef} className="py-[50px] md:py-[31vh]">
+    <div ref={experienceContainerRef} className="py-[50px] md:py-[31dvh]">
       <div ref={experienceBlockRef} className="relative flex flex-col gap-6">
         {expInfo.map((info, index) => (
           <ExperienceItem

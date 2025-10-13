@@ -1,12 +1,16 @@
 'use client';
 
-import { FC, Suspense, useRef, useState } from 'react';
+import { FC, Suspense, useEffect, useRef, useState } from 'react';
 
 import { PointMaterial, Points, Preload } from '@react-three/drei';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import * as random from 'maath/random';
 import { motion, MotionValue, useMotionValueEvent } from 'motion/react';
 import { Points as PointsType, TextureLoader } from 'three';
+
+import { useAnimatedTheme } from 'providers/ThemeProvider';
+
+import { FixedContentWrapper } from 'components/atoms/fixed-content-wrapper';
 
 interface StartProps {
   scrollValue: MotionValue<number>;
@@ -74,24 +78,36 @@ interface StarsBackgroundProps {
 }
 
 const StarsBackground: FC<StarsBackgroundProps> = ({ scrollValue }) => {
+  const { theme } = useAnimatedTheme();
+  const [mounted, setMounted] = useState(false);
+
+  const isDarkMode = theme === 'dark';
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted || !isDarkMode) {
+    return null;
+  }
+
   return (
-    <motion.span
-      className="fixed w-full h-[100dvh] flex z-[-1] opacity-70"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 0.7 }}
-      transition={{ duration: 0.5, delay: 0.5 }}
-    >
-      <Canvas camera={{ position: [0, 0, 1] }}>
-        <Suspense fallback={null}>
-          <Stars scrollValue={scrollValue} />
-        </Suspense>
+    <FixedContentWrapper className="w-full z-[-1] opacity-70">
+      <motion.span
+        className="w-full h-[100dvh]"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.7 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+      >
+        <Canvas camera={{ position: [0, 0, 1] }}>
+          <Suspense fallback={null}>
+            <Stars scrollValue={scrollValue} />
+          </Suspense>
 
-        <Preload all />
-      </Canvas>
-
-      {/* https://github.com/radix-ui/website/blob/8c5a605f07879131e0f7a7e3fd777bb3604672d1/pages/docs/design-system/overview/%5Bslug%5D.tsx#L34-L41 */}
-      <div className="w-[var(--removed-body-scroll-bar-size)] h-full" />
-    </motion.span>
+          <Preload all />
+        </Canvas>
+      </motion.span>
+    </FixedContentWrapper>
   );
 };
 

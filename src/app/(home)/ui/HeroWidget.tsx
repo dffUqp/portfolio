@@ -5,14 +5,14 @@ import { Summary } from 'features/Summary';
 
 import { Container } from 'components/atoms/container/container';
 
-import { getFadeInUpAnimation } from 'utils/animation';
+import { getFadeInUpAnimation } from 'lib/animation';
 
 const HeroWidget = () => {
   return (
     <Container>
       <motion.div
         {...getFadeInUpAnimation(0, 24)}
-        className="relative flex flex-col z-50 w-full justify-between text-white md:flex-row gap-6"
+        className="relative flex flex-col z-10 w-full justify-between text-primary-text md:flex-row gap-6"
       >
         <div className="h-screen md:sticky top-0 flex justify-center items-center">
           <Summary />

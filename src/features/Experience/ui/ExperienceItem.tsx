@@ -9,7 +9,7 @@ import {
   useTransform,
 } from 'motion/react';
 
-import { expInfo } from '../constants';
+import { expInfo } from 'lib/info';
 
 const INITIAL_OPACITY = 0.3;
 

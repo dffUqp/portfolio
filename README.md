@@ -26,7 +26,7 @@ The project combines a modified [Atomic Design](https://atomicdesign.bradfrost.c
 
     ├── providers/ 
 
-    ├── utils/ 
+    ├── lib/ 
 
     └── components/ (shared UI)
         ├── atoms/

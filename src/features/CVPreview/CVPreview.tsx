@@ -34,9 +34,15 @@ const CVPreview = () => {
       <CVPreviewDialog className="hidden md:block group relative cursor-pointer">
         {renderCVImage()}
 
-        <div className="text-white top-0 absolute w-full h-full duration-150 flex opacity-0 invisible justify-center items-center group-hover:opacity-100 group-hover:visible">
+        <div className="text-primary-text top-0 absolute w-full h-full duration-150 flex opacity-0 invisible justify-center items-center group-hover:opacity-100 group-hover:visible">
           <span className="relative z-2 text-">Click to Open</span>
           <div
+            className="
+    bg-gradient-to-b
+    from-transparent
+    to-[hsla(210,60%,98%,0.6)]
+    dark:to-[rgb(3,7,18,0.8)]
+  "
             style={{
               opacity: 1,
               position: 'absolute',
@@ -45,7 +51,6 @@ const CVPreview = () => {
               left: 0,
               right: 0,
               zIndex: 1,
-              backgroundImage: `linear-gradient(to bottom, transparent -10%, rgb(3, 7, 18, 0.8))`,
             }}
           />
         </div>

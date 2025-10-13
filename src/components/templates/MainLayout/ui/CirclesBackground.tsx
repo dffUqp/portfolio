@@ -4,6 +4,8 @@
 
 import { useEffect, useRef, useState } from 'react';
 
+import { useAnimatedTheme } from 'providers/ThemeProvider';
+
 interface Boid {
   x: number;
   y: number;
@@ -19,6 +21,9 @@ const SPEED = 0.2;
 const BOID_COUNT = 20;
 
 const CirclesBackground = () => {
+  const { theme } = useAnimatedTheme();
+  const isDarkMode = theme === 'dark';
+
   const [boids, setBoids] = useState<Boid[]>([]);
   const animationRef = useRef<number | null>(null);
 
@@ -34,7 +39,7 @@ const CirclesBackground = () => {
       y: Math.random() * (height + 2 * r) - r,
       vx: (Math.random() - 0.5) * 5,
       vy: (Math.random() - 0.5) * 5,
-      hue: Math.random() * 60 + 240,
+      hue: isDarkMode ? Math.random() * 60 + 240 : Math.random() * 20 + 200,
       r,
       rand,
     };
@@ -88,15 +93,16 @@ const CirclesBackground = () => {
     const newWidth = window.innerWidth;
     const newHeight = window.innerHeight;
 
-    setBoids(prev => {
-      return prev.map(boid => {
+    const prevWidth = widthRef.current ?? newWidth;
+    const prevHeight = heightRef.current ?? newHeight;
+
+    const dw = newWidth / prevWidth;
+    const dh = newHeight / prevHeight;
+
+    setBoids(prev =>
+      prev.map(boid => {
         const r =
           (boid.rand * newWidth * newHeight * window.devicePixelRatio) / 8000;
-
-        const prevWidth = widthRef.current ?? newWidth;
-        const prevHeight = heightRef.current ?? newHeight;
-        const dw = newWidth / prevWidth;
-        const dh = newHeight / prevHeight;
 
         return {
           ...boid,
@@ -104,8 +110,8 @@ const CirclesBackground = () => {
           y: boid.y * dh,
           r,
         };
-      });
-    });
+      }),
+    );
 
     widthRef.current = newWidth;
     heightRef.current = newHeight;
@@ -117,9 +123,13 @@ const CirclesBackground = () => {
   };
 
   useEffect(() => {
-    widthRef.current = window.innerWidth;
-    heightRef.current = window.innerHeight;
-    initBoids(BOID_COUNT, widthRef.current, heightRef.current);
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    widthRef.current = width;
+    heightRef.current = height;
+
+    initBoids(BOID_COUNT, width, height);
     animationRef.current = requestAnimationFrame(animate);
     window.addEventListener('resize', resize);
 
@@ -127,24 +137,26 @@ const CirclesBackground = () => {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
+
       window.removeEventListener('resize', resize);
     };
-  }, []);
+  }, [isDarkMode]);
 
   return (
     <svg className="w-screen h-[100dvh] fixed -z-10 top-0 left-0 pointer-events-none">
       {boids.map((b, i) => (
-        <radialGradient
-          key={i}
-          id={`g${i}`}
-          cx="50%"
-          cy="50%"
-          r="50%"
-          fx="50%"
-          fy="50%"
-        >
-          <stop offset="0%" stopColor={`hsla(${b.hue},100%,50%,0.1)`} />
-          <stop offset="100%" stopColor={`hsla(${b.hue},100%,50%,0)`} />
+        <radialGradient key={i} id={`g${i}`} cx="50%" cy="50%" r="50%">
+          {isDarkMode ? (
+            <>
+              <stop offset="0%" stopColor={`hsla(${b.hue}, 100%, 50%, 0.1)`} />
+              <stop offset="100%" stopColor={`hsla(${b.hue}, 100%, 50%, 0)`} />
+            </>
+          ) : (
+            <>
+              <stop offset="0%" stopColor={`hsla(${b.hue}, 100%, 70%, 0.25)`} />
+              <stop offset="100%" stopColor={`hsla(${b.hue}, 100%, 70%, 0)`} />
+            </>
+          )}
         </radialGradient>
       ))}
       {boids.map((b, i) => (
