@@ -66,7 +66,8 @@ const ExperienceItem: FC<ExperienceItemProps> = ({
       <div className="flex justify-between w-full font-bold text-xs sm:text-sm lg:text-base">
         <h3>
           {info.jobTitle}
-          <br className="lg:hidden" /> {info.companyName}
+          <br className="lg:hidden" />
+          {info.companyName}
         </h3>
         <p>{info.date}</p>
       </div>
@@ -74,13 +75,11 @@ const ExperienceItem: FC<ExperienceItemProps> = ({
         {info.companyDesc}
       </span>
       <ul className="flex flex-col gap-2 mt-1.5 sm:list-disc text-xs sm:text-sm lg:text-base">
-        {info.bulletPoints.map(bulletPoint => {
-          return (
-            <li key={bulletPoint}>
-              <span>{bulletPoint}</span>
-            </li>
-          );
-        })}
+        {info.bulletPoints.map(bulletPoint => (
+          <li key={bulletPoint}>
+            <span>{bulletPoint}</span>
+          </li>
+        ))}
       </ul>
     </motion.div>
   );

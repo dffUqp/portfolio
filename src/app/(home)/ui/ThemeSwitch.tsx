@@ -12,7 +12,7 @@ import { FixedContentWrapper } from 'components/atoms/fixed-content-wrapper';
 
 import { getFadeInUpAnimation } from 'lib/animation';
 
-const ThemeChanger = () => {
+const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false);
 
   const { theme, setTheme } = useAnimatedTheme();
@@ -43,4 +43,4 @@ const ThemeChanger = () => {
   );
 };
 
-export { ThemeChanger };
+export { ThemeSwitch };

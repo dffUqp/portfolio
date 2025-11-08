@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
-    "prebuild": "node generate-cv-preview.mjs",
+    "prebuild": "node scripts/generate-cv-preview.mjs",
     "build": "next build",
     "dev": "next dev --turbopack",
     "start": "next start",

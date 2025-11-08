@@ -4,14 +4,14 @@ import { useSectionScrollProgress } from 'providers/SectionScrollProvider';
 
 import { CVWidget } from './ui/CVWidget';
 import { HeroWidget } from './ui/HeroWidget';
-import { ThemeChanger } from './ui/ThemeSwitcher';
+import { ThemeSwitch } from './ui/ThemeSwitch';
 
 const HomePage = () => {
   const { targetSection } = useSectionScrollProgress();
 
   return (
     <>
-      <ThemeChanger />
+      <ThemeSwitch />
 
       <HeroWidget />
 

@@ -10,8 +10,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 async function generatePreview() {
-  const pdfPath = path.join(__dirname, './public/pdf/Yurii_Vasylchuk_CV.pdf');
-  const outputPath = path.join(__dirname, './public/Yurii_Vasylchuk_CV.png');
+  const pdfPath = path.join(__dirname, '../public/pdf/Yurii_Vasylchuk_CV.pdf');
+  const outputPath = path.join(__dirname, '../public/Yurii_Vasylchuk_CV.png');
 
   if (!fs.existsSync(pdfPath)) {
     console.error('PDF not found:', pdfPath);

@@ -38,7 +38,6 @@ export default tseslint.config(
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
       '@next/next': pluginNext,
-      // '@react-three': pluginReactThree,
     },
     settings: {
       'import/resolver': {
