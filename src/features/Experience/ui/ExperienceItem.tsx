@@ -13,9 +13,37 @@ import { expInfo } from 'lib/info';
 
 const INITIAL_OPACITY = 0.3;
 
+interface ExperienceItemContent {
+  info: (typeof expInfo)[number];
+}
+
+const ExperienceItemContent: FC<ExperienceItemContent> = ({ info }) => {
+  return (
+    <div className="flex flex-col">
+      <div className="flex justify-between w-full font-bold text-xs sm:text-sm lg:text-base">
+        <h3>
+          {info.jobTitle}
+          <br className="lg:hidden" /> {info.companyName}
+        </h3>
+        <p>{info.date}</p>
+      </div>
+      <span className="block text-[10px] sm:text-xs lg:text-sm">
+        {info.companyDesc}
+      </span>
+      <ul className="flex flex-col gap-2 mt-1.5 sm:list-disc text-xs sm:text-sm lg:text-base text-sub-text">
+        {info.bulletPoints.map(bulletPoint => (
+          <li key={bulletPoint}>
+            <span>{bulletPoint}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
 interface ExperienceItemProps {
   index: number;
-  info: (typeof expInfo)[number];
+  info: ExperienceItemContent['info'];
   progress: MotionValue<number>;
   blockHeight: number;
 }
@@ -62,26 +90,15 @@ const ExperienceItem: FC<ExperienceItemProps> = ({
   });
 
   return (
-    <motion.div ref={itemRef} className="flex flex-col" style={{ opacity }}>
-      <div className="flex justify-between w-full font-bold text-xs sm:text-sm lg:text-base">
-        <h3>
-          {info.jobTitle}
-          <br className="lg:hidden" />
-          {info.companyName}
-        </h3>
-        <p>{info.date}</p>
+    <>
+      <motion.div className="hidden md:block" ref={itemRef} style={{ opacity }}>
+        <ExperienceItemContent info={info} />
+      </motion.div>
+
+      <div className="block md:hidden">
+        <ExperienceItemContent info={info} />
       </div>
-      <span className="block text-[10px] sm:text-xs lg:text-sm">
-        {info.companyDesc}
-      </span>
-      <ul className="flex flex-col gap-2 mt-1.5 sm:list-disc text-xs sm:text-sm lg:text-base">
-        {info.bulletPoints.map(bulletPoint => (
-          <li key={bulletPoint}>
-            <span>{bulletPoint}</span>
-          </li>
-        ))}
-      </ul>
-    </motion.div>
+    </>
   );
 };
 

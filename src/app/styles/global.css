@@ -49,7 +49,9 @@
 
 /* Inspired by: https://elysiajs.com/, https://theme-toggle.rdsx.dev/ */
 ::view-transition-group(root) {
-  animation-timing-function: var(--expo-out);
+  @variant md {
+    animation-timing-function: var(--expo-out);
+  }
 }
 
 ::view-transition-new(root) {
