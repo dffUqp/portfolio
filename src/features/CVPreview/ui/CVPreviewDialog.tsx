@@ -15,11 +15,13 @@ interface CVPreviewDialogProps
   extends PropsWithChildren,
     ComponentProps<typeof Dialog> {
   className: string;
+  cvLink: string;
 }
 
 const CVPreviewDialog: FC<CVPreviewDialogProps> = ({
   children,
   className,
+  cvLink,
   ...rest
 }) => {
   return (
@@ -39,14 +41,14 @@ const CVPreviewDialog: FC<CVPreviewDialogProps> = ({
         </DialogHeader>
         <div className="grow height-full">
           <object
-            data="./pdf/Yurii_Vasylchuk_CV.pdf"
+            data={cvLink}
             type="application/pdf"
             width="100%"
             height="100%"
             title="Embedded PDF Viewer"
           >
             <iframe
-              src="./pdf/Yurii_Vasylchuk_CV.pdf"
+              src={cvLink}
               width="100%"
               height="100%"
               title="Fallback PDF Viewer"
@@ -60,4 +62,4 @@ const CVPreviewDialog: FC<CVPreviewDialogProps> = ({
   );
 };
 
-export default CVPreviewDialog;
+export { CVPreviewDialog };

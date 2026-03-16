@@ -29,3 +29,7 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
+# blob upload script and data (contain personal info, not for repo)
+scripts/upload-to-blob.mjs
+/public/data
+

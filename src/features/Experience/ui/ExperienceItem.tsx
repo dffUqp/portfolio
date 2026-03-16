@@ -9,22 +9,22 @@ import {
   useTransform,
 } from 'motion/react';
 
-import { expInfo } from 'lib/info';
+import { ExperienceItemType } from 'lib/info';
 
 const INITIAL_OPACITY = 0.3;
 
 interface ExperienceItemContent {
-  info: (typeof expInfo)[number];
+  info: ExperienceItemType;
 }
 
 const ExperienceItemContent: FC<ExperienceItemContent> = ({ info }) => {
   return (
     <div className="flex flex-col">
       <div className="flex justify-between w-full font-bold text-xs sm:text-sm lg:text-base">
-        <h3>
+        <h2>
           {info.jobTitle}
           <br className="lg:hidden" /> {info.companyName}
-        </h3>
+        </h2>
         <p>{info.date}</p>
       </div>
       <span className="block text-[10px] sm:text-xs lg:text-sm">
@@ -43,7 +43,7 @@ const ExperienceItemContent: FC<ExperienceItemContent> = ({ info }) => {
 
 interface ExperienceItemProps {
   index: number;
-  info: ExperienceItemContent['info'];
+  info: ExperienceItemType;
   progress: MotionValue<number>;
   blockHeight: number;
 }
@@ -62,7 +62,7 @@ const ExperienceItem: FC<ExperienceItemProps> = ({
   const startPoint = (itemOffset - index * 24) / blockHeight;
   const endPoint = startPoint + placeTaken;
 
-  const isLastBlock = blockHeight === itemOffset + itemHeight;
+  const isLastBlock = blockHeight <= itemOffset + itemHeight;
 
   useEffect(() => {
     if (itemRef.current) {

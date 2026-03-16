@@ -1,14 +1,18 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 
 import { useScroll } from 'motion/react';
 
-import { expInfo } from 'lib/info';
+import { ExperienceItemType } from 'lib/info';
 
 import { ExperienceItem } from './ui/ExperienceItem';
 
-const Experience = () => {
+interface ExperienceProps {
+  info: ExperienceItemType[];
+}
+
+const Experience: FC<ExperienceProps> = ({ info }) => {
   const experienceContainerRef = useRef<HTMLDivElement | null>(null);
 
   const experienceBlockRef = useRef<HTMLDivElement | null>(null);
@@ -28,12 +32,12 @@ const Experience = () => {
   return (
     <div ref={experienceContainerRef} className="py-[50px] md:py-[31dvh]">
       <div ref={experienceBlockRef} className="relative flex flex-col gap-6">
-        {expInfo.map((info, index) => (
+        {info.map((item, index) => (
           <ExperienceItem
             index={index}
             blockHeight={experienceBlockHeight}
-            key={info.companyName}
-            info={info}
+            key={item.companyName}
+            info={item}
             progress={scrollYProgress}
           />
         ))}

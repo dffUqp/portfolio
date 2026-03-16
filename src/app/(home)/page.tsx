@@ -1,23 +1,21 @@
-'use client';
-
-import { useSectionScrollProgress } from 'providers/SectionScrollProvider';
-
+import { getInfo } from './getInfoAction';
 import { CVWidget } from './ui/CVWidget';
 import { HeroWidget } from './ui/HeroWidget';
+import { SectionTracker } from './ui/SectionTracker';
 import { ThemeSwitch } from './ui/ThemeSwitch';
 
-const HomePage = () => {
-  const { targetSection } = useSectionScrollProgress();
+const HomePage = async () => {
+  const portfolioInfo = await getInfo();
 
   return (
     <>
       <ThemeSwitch />
 
-      <HeroWidget />
+      <HeroWidget portfolioInfo={portfolioInfo} />
 
-      <div ref={targetSection}>
+      <SectionTracker>
         <CVWidget />
-      </div>
+      </SectionTracker>
     </>
   );
 };

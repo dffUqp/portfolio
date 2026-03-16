@@ -5,6 +5,14 @@ import './src/env';
 
 const nextConfig: NextConfig = {
   transpilePackages: ['three'],
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '*.public.blob.vercel-storage.com',
+      },
+    ],
+  },
 };
 
 export default nextConfig;

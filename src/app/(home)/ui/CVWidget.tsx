@@ -1,5 +1,3 @@
-'use client';
-
 import { CVPreview } from 'features/CVPreview';
 
 import { Container } from 'components/atoms/container/container';

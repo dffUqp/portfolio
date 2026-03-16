@@ -35,6 +35,7 @@ const ThemeSwitch = () => {
           }}
           variant="ghost"
           size="icon"
+          aria-label="Toggle theme"
         >
           {isDarkMode ? <Sun /> : <MoonStar />}
         </Button>
